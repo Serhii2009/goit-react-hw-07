@@ -1,0 +1,18 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-left: 50px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.list-buttons {
+  margin-left: 8px;
+}
+
+input {
+  border-radius: 10px;
+}
