@@ -1,7 +1,7 @@
 import css from "./ContactList.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteCard } from "../../redux/operation";
-import { selectVisibleCard } from "../../redux/selectors";
+import { deleteCard } from "../../reduxe/operation";
+import { selectVisibleCard } from "../../reduxe/selector";
 import { Contact } from "../Contact/Contact";
 
 export const ContactList = () => {
