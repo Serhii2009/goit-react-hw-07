@@ -11,7 +11,6 @@ export const SearchBox = () => {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    console.log(value);
     dispatch(setStatusFilter(value));
   };
 

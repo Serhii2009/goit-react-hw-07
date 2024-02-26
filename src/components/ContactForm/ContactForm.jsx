@@ -1,21 +1,33 @@
 import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCards } from "../../reduxe/selector";
 import { addCard } from "../../reduxe/operation";
+
+import { toast } from "react-hot-toast";
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const allCards = useSelector(selectCards);
 
   const handleSubmit = (values, actions) => {
-    const newContact = {
-      id: values.id,
-      name: values.name,
-      number: values.number,
-    };
+    const isCardExist = allCards.some((card) => card.name === values.name);
+    if (isCardExist) {
+      toast.error("Contact with this name already exists.", {
+        position: "top-right",
+      });
+      actions.resetForm();
+    } else {
+      const newContact = {
+        id: values.id,
+        name: values.name,
+        number: values.number,
+      };
 
-    dispatch(addCard(newContact));
-    actions.resetForm();
+      dispatch(addCard(newContact));
+      actions.resetForm();
+    }
   };
   const initialValues = { id: "", name: "", number: "" };
   const nameFieldId = useId();
