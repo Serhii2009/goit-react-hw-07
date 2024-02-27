@@ -39,8 +39,8 @@ export const ContactForm = () => {
       .required("This is a required field"),
     number: Yup.string()
       .matches(
-        /^\d{3}-\d{2}-\d{2}$/,
-        "Phone number must have only numbers and in xxx-xx-xx format"
+        /^\d{3}-\d{3}-\d{4}$/,
+        "Phone number must have only numbers and in xxx-xxx-xxxx format"
       )
       .required("This is a required field"),
   });

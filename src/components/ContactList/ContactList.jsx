@@ -17,7 +17,7 @@ export const ContactList = () => {
         <li key={contact.id}>
           <Contact
             name={contact.name}
-            number={contact.phone}
+            number={contact.number}
             onButtonClick={() => handleContactDelete(contact.id)}
           />
         </li>
